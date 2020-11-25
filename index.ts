@@ -14,34 +14,34 @@ import restauranteRoutes from './routes/restaurante';
 const server = new Server();
 
 //Body Parser
-server.app.use(bodyParser.urlencoded({extended: true}));
+server.app.use(bodyParser.urlencoded({ extended: true }));
 server.app.use(bodyParser.json());
 
 //FileUpload (?)
 server.app.use(fileUpload());
 
 //Configurar Cors
-server.app.use(cors({origin : true, credentials: true}));
+server.app.use(cors({ origin: true, credentials: true }));
 
 
 //Rutas de mi app
-server.app.use('/user', userRoutes); 
-server.app.use('/pedidos', pedidosRoutes); 
+server.app.use('/user', userRoutes);
+server.app.use('/pedidos', pedidosRoutes);
 server.app.use('/menuarticulo', platoRoutes);
-server.app.use('/restaurante',restauranteRoutes)
+server.app.use('/restaurante', restauranteRoutes)
 
 //Conectar DB
 mongoose.connect(
-    'mongodb+srv://pablo:pablo2020@cluster0-qdj2m.mongodb.net/appmesero?retryWrites=true&w=majority',
-    {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true},(err)=>{
+    'mongodb+srv://jona:asdwjkli4568@cluster0.zp62l.mongodb.net/appmesero?retryWrites=true&w=majority',
+    { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false }, (err) => {
         if (err) throw err;
         console.log('Base de datos online ');
-})
+    })
 
-server.app.set('port',process.env.PORT || 3000);
+server.app.set('port', process.env.PORT || 3000);
 
 //Levantar express
-server.start( () => {
+server.start(() => {
     console.log(`Servidor corriendo en puerto: ${server.port}`);
 });
 

@@ -26,7 +26,7 @@ server.app.use('/pedidos', pedidos_1.default);
 server.app.use('/menuarticulo', menuarticulo_1.default);
 server.app.use('/restaurante', restaurante_1.default);
 //Conectar DB
-mongoose_1.default.connect('mongodb+srv://pablo:pablo2020@cluster0-qdj2m.mongodb.net/appmesero?retryWrites=true&w=majority', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }, (err) => {
+mongoose_1.default.connect('mongodb+srv://jona:asdwjkli4568@cluster0.zp62l.mongodb.net/appmesero?retryWrites=true&w=majority', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false }, (err) => {
     if (err)
         throw err;
     console.log('Base de datos online ');
